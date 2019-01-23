@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000
 const app = require('./app')
 
 
-mongoose.connect('mongodb://localhost:27017/shop', (err, res) => {
+mongoose.connect('mongodb://fenicioUser:nsfFtW3SKV8xR6a@ds111025.mlab.com:11025/heroku_gvrgxfmk', (err, res) => {
     if(err){
         console.log(`Error al conectar la base de datos ${err}`)
     } 
