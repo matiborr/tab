@@ -29,7 +29,7 @@ function saveProduct(req, res){
     product.idUser = req.body.idUser
     product.idCommerce = req.body.idCommerce
     product.articles = req.body.articles
-    product.date = new Date;
+    product.date = req.body.date;
 
     product.save((err, productStored) =>{
         if(err) res.status(500).send({message: `Error al salvar la base de datos ${err}`})
