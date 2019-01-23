@@ -8,7 +8,7 @@ const ProductSchema = Schema({
     idUser: Number, 
     idCommerce: String,
     articles: Array,
-    date: Date,
+    date: String,
 })
 
 module.exports = mongoose.model('compras',ProductSchema)
