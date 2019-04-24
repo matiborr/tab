@@ -5,18 +5,23 @@ const express = require('express')
 //Libreria para parsear jsons
 const bodyparser = require('body-parser')
 
-const ProductCtrl = require('./controllers/product')
+const compraCtrl = require('./controllers/compra')
+const productoCtrl = require('./controllers/producto')
 //Inicializo el servidor
 const app = express()
 
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json())
 
-app.get('/api/getCompras',ProductCtrl.getProducts)
+//solo dev
 
-app.post('/api/saveCompra/', ProductCtrl.saveProduct)
+app.get('/api/getCompras/:idCommerce',compraCtrl.getCompras)
 
-//app.get('/api/product/:productId', ProductCtrl.getProduct)
+app.post('/api/saveCompra/', compraCtrl.saveCompra)
+
+app.get('/api/getProducto/:idProducto/:idComercio', productoCtrl.getProducto)
+
+
 
 //app.delete('/api/product/:productId',ProductCtrl.deleteProduct)
 
