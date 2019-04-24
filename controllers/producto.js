@@ -43,7 +43,19 @@ function getProducto(req, res) {
     })
     //Como es una funcion async espero que termine de generar todo antes de enviar los datos a la vista
     setTimeout(function () {
-        res.status(200).send({ articulos })
+        var sorteable = [];
+        for(var codigo in articulos){
+            sorteable.push([codigo, articulos[codigo]]);
+        }
+        sorteable.sort(function(a, b) {
+            return b[1] - a[1];
+        });
+        var resultado = [];
+        var total = Math.min(20,sorteable.length);
+        for(var i=0; i < total; i++){
+            resultado.push(sorteable[i][0]);
+        }
+         res.status(200).send({resultado })
     }, 1000)
 
 }
