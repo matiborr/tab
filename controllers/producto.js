@@ -22,15 +22,15 @@ function getProducto(req, res) {
                     
                     for (var h = 0; h < compraResultUser.length; h++) {
                            //Recorro los articulos de los usuarios
-                        for (var j = 0; j < compraResult[h].articles.length; j++) {
+                        for (var j = 0; j < compraResultUser[h].articles.length; j++) {
                             //Si el usuario compro un articulo igual al que preguntamos lo ignoro
-                            if (compraResult[h].articles[j] != req.params.idProducto) {
+                            if (compraResultUser[h].articles[j] != req.params.idProducto) {
  
                                 //Si el articulo ya esta seteado le sumo 1 sino lo agrego al array
-                                if (articulos[compraResult[h].articles[j]]) {
-                                    articulos[compraResult[h].articles[j]] += 1;
+                                if (articulos[compraResultUser[h].articles[j]]) {
+                                    articulos[compraResultUser[h].articles[j]] += 1;
                                 } else {
-                                    articulos[compraResult[h].articles[j]] = 1;
+                                    articulos[compraResultUser[h].articles[j]] = 1;
                                 }
                             }
                         }
